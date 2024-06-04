@@ -57,5 +57,10 @@ namespace OnlineShop.API.Controllers
             }
             return Ok(order);
         }
+        [HttpGet("/")]
+        public async Task<IActionResult> Start()
+        {
+            return Ok("Проект працює!");
+        }
     }
 }
