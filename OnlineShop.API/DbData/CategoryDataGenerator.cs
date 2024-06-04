@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using OnlineShop.API.Entities;
 
 namespace OnlineShop.API.DbData
@@ -24,7 +23,6 @@ namespace OnlineShop.API.DbData
                 Name = "Спорт та відпочинок" 
             }
         };
-
         public static void Generate(ModelBuilder builder)
         {
             builder.Entity<Category>()

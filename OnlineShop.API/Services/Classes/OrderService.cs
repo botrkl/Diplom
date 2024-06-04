@@ -25,7 +25,7 @@ namespace OnlineShop.API.Services.Classes
                 .Where(o => o.Id == orderId)
                 .Include(o => o.ShippingAddress)
                 .Include(o => o.OrderItems)
-                .FirstOrDefaultAsync();  // Use FirstOrDefaultAsync to get a single Order or null
+                .FirstOrDefaultAsync(); 
         }
     }
 }

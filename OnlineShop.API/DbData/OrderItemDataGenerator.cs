@@ -29,7 +29,6 @@ namespace OnlineShop.API.DbData
                 ProductId = Guid.Parse("CB1A499B-A1B6-4E94-95C9-D1DC4653F3A1")
             }
         };
-
         public static void Generate(ModelBuilder builder)
         {
             builder.Entity<OrderItem>()

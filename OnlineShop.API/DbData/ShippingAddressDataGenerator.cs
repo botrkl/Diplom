@@ -26,7 +26,6 @@ namespace OnlineShop.API.DbData
                 OrderId = Guid.Parse("D8C7BD81-A34C-4677-B698-DADAC6708B84")
             },
         };
-
         public static void Generate(ModelBuilder builder)
         {
             builder.Entity<ShippingAddress>()

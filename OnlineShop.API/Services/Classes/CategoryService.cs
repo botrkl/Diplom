@@ -13,7 +13,6 @@ namespace OnlineShop.API.Services.Classes
         {
             _context = context;
         }
-
         public async Task<IEnumerable<Category>> GetAllCategoriesAsync()
         {
             return await _context.Categories.ToListAsync();

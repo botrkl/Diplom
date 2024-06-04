@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using OnlineShop.API.Entities;
 
 namespace OnlineShop.API.DbData
@@ -25,7 +24,6 @@ namespace OnlineShop.API.DbData
                 ShippingAddressId = Guid.Parse("7128B902-4778-4A3D-975B-AB9C62E8A0C4")
             },
         };
-
         public static void Generate(ModelBuilder builder)
         {
             builder.Entity<Order>()

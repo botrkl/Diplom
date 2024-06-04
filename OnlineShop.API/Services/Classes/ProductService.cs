@@ -13,14 +13,12 @@ namespace OnlineShop.API.Services.Classes
         {
             _context = context;
         }
-
         public async Task<IEnumerable<Product>> GetProductsByCategoryIdAsync(Guid categoryId)
         {
             return await _context.Products
                 .Where(p => p.CategoryId == categoryId)
                 .ToListAsync();
         }
-
         public async Task<IEnumerable<Product>> GetAllProductsAsync()
         {
             return await _context.Products.ToListAsync();

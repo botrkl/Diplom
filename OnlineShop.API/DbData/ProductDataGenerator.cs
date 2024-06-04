@@ -58,7 +58,6 @@ namespace OnlineShop.API.DbData
                 CategoryId = Guid.Parse("96CCF359-94B9-4FAD-A857-6FD2E4C6519F")
             }
         };
-
         public static void Generate(ModelBuilder builder)
         {
             builder.Entity<Product>()
