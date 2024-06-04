@@ -17,7 +17,7 @@ namespace OnlineShop.API.Entities
         [Range(1, int.MaxValue, ErrorMessage = "Номер будинку має бути більше 0.")]
         public uint HouseNumber { get; set; }
 
-        [ForeignKey("Order")] // Вказуємо зовнішній ключ
+        [ForeignKey("Order")]
         public Guid OrderId { get; set; }
         public virtual Order Order { get; set; }
     }

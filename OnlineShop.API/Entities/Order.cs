@@ -13,10 +13,10 @@ namespace OnlineShop.API.Entities
         [EmailAddress(ErrorMessage = "Некоректний формат електронної пошти.")]
         public string CustomerEmail { get; set; }
 
-        public DateTime OrderDate { get; set; }
+        public DateTime OrderDate { get; set; } = DateTime.Now;
 
-        [Column(TypeName = "decimal(18,2)")]
-        public decimal TotalAmount { get; set; }
+        public Guid ShippingAddressId { get; set; }
+        public virtual ShippingAddress ShippingAddress { get; set; }
         public IList<OrderItem> OrderItems { get; set; }
     }
 }

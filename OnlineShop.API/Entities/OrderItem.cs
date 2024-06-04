@@ -8,8 +8,8 @@ namespace OnlineShop.API.Entities
         [Range(1, int.MaxValue, ErrorMessage = "Кількість має бути більше 0.")]
         public uint Quantity { get; set; }
 
-        [Column(TypeName = "decimal(18,2)")]
-        public decimal PricePerItem { get; set; }
+        //[Column(TypeName = "decimal(18,2)")]
+        //public decimal PricePerItem { get; set; }
 
         [ForeignKey("Order")]
         public Guid OrderId { get; set; }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using OnlineShop.API.DbData;
 using OnlineShop.API.Entities;
 
 namespace OnlineShop.API.Context
@@ -16,40 +17,41 @@ namespace OnlineShop.API.Context
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Category - Product (One-to-Many)
             modelBuilder.Entity<Category>()
                 .HasMany(c => c.Products)
                 .WithOne(p => p.Category)
                 .HasForeignKey(p => p.CategoryId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            // Order - ShippingAddress (One-to-One)
             modelBuilder.Entity<Order>()
-         .HasOne(o => o.ShippingAddress)
-         .WithOne(sa => sa.Order) // Виправлено на sa.Order (без дужок)
-         .HasForeignKey<Order>(o => o.ShippingAddressId)
-         .OnDelete(DeleteBehavior.Cascade);
+                .HasOne(o => o.ShippingAddress)
+                .WithOne(sa => sa.Order) 
+                .HasForeignKey<Order>(o => o.ShippingAddressId)
+                .OnDelete(DeleteBehavior.Cascade);
 
-            // Order - OrderItem (One-to-Many)
             modelBuilder.Entity<Order>()
                 .HasMany(o => o.OrderItems)
                 .WithOne(oi => oi.Order)
                 .HasForeignKey(oi => oi.OrderId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            // OrderItem - Product (Many-to-One)
             modelBuilder.Entity<OrderItem>()
                 .HasOne(oi => oi.Product)
                 .WithMany()
                 .HasForeignKey(oi => oi.ProductId);
 
-            // Indexes
             modelBuilder.Entity<Product>()
                 .HasIndex(p => p.CategoryId);
             modelBuilder.Entity<OrderItem>()
                 .HasIndex(oi => oi.OrderId);
             modelBuilder.Entity<OrderItem>()
                 .HasIndex(oi => oi.ProductId);
+
+            CategoryDataGenerator.Generate(modelBuilder);
+            OrderDataGenerator.Generate(modelBuilder);
+            OrderItemDataGenerator.Generate(modelBuilder);
+            ProductDataGenerator.Generate(modelBuilder);
+            ShippingAddressDataGenerator.Generate(modelBuilder);
         }
     }
 }
